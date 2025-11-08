@@ -17,6 +17,16 @@ const db = mysql.createPool({
 app.use(cors());
 app.use(express.json());
 
+// ====== READ - Semua Media ======
+app.get('/api/media', async (req, res) => {
+  try {
+    const [rows] = await db.query('SELECT * FROM media ORDER BY id_media DESC');
+    res.json(rows);
+  } catch (err) {
+    res.status(500).json({ message: 'Kesalahan Server', error: err.message });
+  }
+});
+
 // ====== READ - Media Berdasarkan ID ======
 app.get('/api/media/:id', async (req, res) => {
   try {
