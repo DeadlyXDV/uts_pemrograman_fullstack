@@ -12,7 +12,4 @@ CREATE TABLE IF NOT EXISTS media (
     tipe ENUM('Film', 'Series') NOT NULL,
     tahun_rilis YEAR NOT NULL,
     genre VARCHAR(100) NOT NULL,
-    INDEX idx_tipe (tipe),
-    INDEX idx_tahun_rilis (tahun_rilis),
-    INDEX idx_genre (genre)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
